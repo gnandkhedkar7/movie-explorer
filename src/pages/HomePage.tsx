@@ -74,7 +74,7 @@ export default function HomePage() {
       {/* Header */}
       <header className="sticky top-0 bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">🎬 Movie Explorer</h1>
-        <DarkModeToggle />
+      {/*   <DarkModeToggle /> */}
       </header>
 
       <main className="max-w-6xl mx-auto p-6">

@@ -19,4 +19,9 @@ export interface MovieDetails extends Movie {
   Actors: string;
   Plot: string;
   Runtime: string;
+  Language: string;
+  imdbRating: number;
+  Writer: string;
+  Website: string;
+  Awards: string;
 }

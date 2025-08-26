@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import type { MovieDetails } from "../types/movie";
+import { getMovieById } from "../api/omdb";
 
 export default function MovieDetailsPage() {
   const { id } = useParams<{ id: string }>();
@@ -9,7 +10,7 @@ export default function MovieDetailsPage() {
   const [error, setError] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<string[]>([]);
 
-  // ---- Favorites handling ----
+  // Favorites handling 
   const toggleFavorite = (id: string) => {
     setFavorites((prev) =>
       prev.includes(id) ? prev.filter((f) => f !== id) : [...prev, id]
@@ -18,13 +19,13 @@ export default function MovieDetailsPage() {
 
   const isFav = (id: string) => favorites.includes(id);
 
-  // ---- Load movie details ----
+  //  Load movie details 
   useEffect(() => {
     async function load() {
       if (!id) return;
       setLoading(true);
       try {
-        const res = await getMovieDetails(id);
+        const res = await getMovieById(id);
         if (res.Response === "True") {
           setMovie(res);
           setError(null);
